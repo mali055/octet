@@ -7,8 +7,6 @@
 // Text overlay
 //
 
-#define OCTET_BULLET 1
-
 #include "../../octet.h"
 
 #include "intro_to_prog_1.h"
