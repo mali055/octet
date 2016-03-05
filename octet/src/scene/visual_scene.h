@@ -51,8 +51,8 @@ namespace octet { namespace scene {
       btDefaultCollisionConfiguration config;       /// setup for the world
       btCollisionDispatcher *dispatcher;            /// handler for collisions between objects
       btDbvtBroadphase *broadphase;                 /// handler for broadphase (rough) collision
+	  btDiscreteDynamicsWorld *world;             /// physics world, contains rigid bodies
       btSequentialImpulseConstraintSolver *solver;  /// handler to resolve collisions
-      btDiscreteDynamicsWorld *world;             /// physics world, contains rigid bodies
       typedef btCollisionShape collison_shape_t;
     #else
       typedef void collison_shape_t;
@@ -538,6 +538,7 @@ namespace octet { namespace scene {
           if (node) {
             mat4t &mat = node->access_nodeToParent();
             co->getWorldTransform().getOpenGLMatrix(mat.get());
+
             //printf("%d %f\n", i, mat.w().y());
           }
         }
@@ -656,6 +657,15 @@ namespace octet { namespace scene {
         debug_line_buffer[debug_in_ptr++ & debug_line_buffer.size()-1] = end;
       }
     }
+
+	//Assignment stuff
+	void add_constraint(btTypedConstraint *btConst) {
+		world->addConstraint(btConst);
+	}
+
+	btDiscreteDynamicsWorld* get_btworld() {
+		return world;
+	}
   };
 }}
 

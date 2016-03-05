@@ -55,7 +55,8 @@ namespace octet {
     OCTET_HUNGARIANS(half_space)
     OCTET_HUNGARIANS(ray)
     OCTET_HUNGARIANS(random)
-    OCTET_HUNGARIANS(zcylinder)
+	OCTET_HUNGARIANS(zcylinder)
+	OCTET_HUNGARIANS(torus)
   }
 
   using namespace math;
@@ -85,6 +86,7 @@ namespace octet {
 #include "ray.h"
 #include "polygon.h"
 #include "zcylinder.h"
+#include "torus.h"
 #include "voxel_grid.h"
 
 #endif
